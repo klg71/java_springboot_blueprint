@@ -1,23 +1,28 @@
 package de.osp.springTodoExample.web;
 
-import de.osp.springTodoExample.model.TodoList;
+import de.osp.springTodoExample.model.TodoEntry;
 import de.osp.springTodoExample.todoList.TodoListService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.*;
+import java.util.List;
 
 @RestController
 @RequestMapping("/todos")
 public class TodoListController {
 
-  @Autowired
-  private TodoListService todoListService;
+    private final TodoListService todoListService;
 
-  @GetMapping
-  public List<TodoList> get() {
-    return todoListService.getDummyTodoList();
-  }
+    public TodoListController(final TodoListService todoListService) {
+        this.todoListService = todoListService;
+    }
+
+    @GetMapping
+    public List<TodoEntry> get() {
+        return todoListService.get();
+    }
+
+    @PostMapping
+    public void add(@RequestBody String todo) {
+        todoListService.add(todo);
+    }
 }
