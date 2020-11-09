@@ -5,6 +5,7 @@ import de.osp.springTodoExample.todoList.TodoListService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/todos")
@@ -24,5 +25,10 @@ public class TodoListController {
     @PostMapping
     public void add(@RequestBody String todo) {
         todoListService.add(todo);
+    }
+
+    @DeleteMapping("/{id}")
+    public void add(@PathVariable(name = "id") UUID id) {
+        todoListService.delete(id);
     }
 }

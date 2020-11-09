@@ -6,6 +6,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.*;
 
-public interface TodoListRepo extends JpaRepository<TodoEntry, Long> {
+public interface TodoListRepo extends JpaRepository<TodoEntry, UUID> {
 
 }
