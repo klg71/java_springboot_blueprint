@@ -5,6 +5,7 @@ import de.osp.springTodoExample.model.TodoList;
 import de.osp.springTodoExample.repo.EntryRepository;
 import de.osp.springTodoExample.repo.TodoListRepository;
 import java.util.List;
+import javax.persistence.EntityNotFoundException;
 import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Service;
 
@@ -45,5 +46,16 @@ public class TodoListService {
 
     public List<Entry> getEntries(Integer todoListId) {
         return entryRepository.findAllByListId(todoListId);
+    }
+
+    public Entry setEntryDone(Integer entryId) {
+        final var optionalEntry = entryRepository.findById(entryId);
+        if (optionalEntry.isEmpty()) {
+            throw new EntityNotFoundException("TodoListEntry with id: " + optionalEntry + " could not be found");
+        }
+        final var entry = optionalEntry.get();
+        entry.setDone(true);
+
+        return entryRepository.save(entry);
     }
 }

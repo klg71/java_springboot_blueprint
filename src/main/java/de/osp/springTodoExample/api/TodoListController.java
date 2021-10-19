@@ -8,6 +8,7 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -30,6 +31,11 @@ public class TodoListController {
     @PostMapping("/{id}/entry")
     public Entry createEntry(@PathVariable("id") Integer todoListId, @RequestBody String text) {
         return todoListService.addEntry(todoListId, text);
+    }
+
+    @PutMapping("/entry/{entryId}/done")
+    public Entry setEntryDone(@PathVariable("entryId") Integer entryId) {
+        return todoListService.setEntryDone(entryId);
     }
 
     @GetMapping
