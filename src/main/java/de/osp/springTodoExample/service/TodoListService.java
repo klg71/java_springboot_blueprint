@@ -58,4 +58,13 @@ public class TodoListService {
 
         return entryRepository.save(entry);
     }
+
+    public void deleteEntry(Integer todoListId, Integer entryId) {
+        final var optionalEntry = entryRepository.findById(entryId);
+        if (optionalEntry.isEmpty()) {
+            throw new EntityNotFoundException("TodoListEntry with id: " + optionalEntry +
+                    " could not be found");
+        }
+        entryRepository.deleteById(entryId);
+    }
 }

@@ -5,6 +5,7 @@ import de.osp.springTodoExample.model.TodoList;
 import de.osp.springTodoExample.service.TodoListService;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,14 @@ public class TodoListController {
     @PostMapping("/{id}/entry")
     public Entry createEntry(@PathVariable("id") Integer todoListId, @RequestBody String text) {
         return todoListService.addEntry(todoListId, text);
+    }
+
+    @DeleteMapping("/{todoListId}/entry/{entryId}")
+    public void deleteEntry(
+            @PathVariable("todoListId") Integer todoListId,
+            @PathVariable("entryId") Integer entryId
+    ) {
+        todoListService.deleteEntry(todoListId, entryId);
     }
 
     @PutMapping("/entry/{entryId}/done")
