@@ -7,3 +7,10 @@ spring:
 
 project:
   description: todoapp
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: info, health, metrics, prometheus
+
