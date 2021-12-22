@@ -1,0 +1,22 @@
+@startuml
+entity TodoList{
+    Int id
+    String description
+}
+
+entity Entry{
+    Int id
+    Int todo_list_id
+    LocalDateTime dueDate
+    EntryStatus status
+    String description
+    Int priority #lower is more important
+}
+
+enum EntryStatus {
+    DONE,ACTIVE,PENDING
+}
+
+Entry-down->EntryStatus
+Entry->TodoList
+@enduml

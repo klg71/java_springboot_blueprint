@@ -1,0 +1,11 @@
+@startuml
+actor "Anwender"
+(Eine Einkaufsliste abbilden)
+(Einträge einer Todo-Liste hinzufügen)
+(Einträge aus einer Todo-Liste löschen)
+(Einträge einer Todo-Liste bearbeiten)
+(Eintragsstatus updaten)
+(Todo-Liste erstellen)
+(Todo-Liste löschen)
+(Einträge nach Priorität sortieren)
+@enduml
