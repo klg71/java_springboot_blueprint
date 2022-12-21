@@ -40,12 +40,16 @@ deploy {
 
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
+    implementation("org.mockito:mockito-core:4.10.0")
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude("org.junit.vintage:junit-vintage-engine")
     }
+
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-actuator")
+
+    implementation("io.rest-assured:rest-assured:5.3.0")
 
 
     // OpenApi/Swagger documentation
