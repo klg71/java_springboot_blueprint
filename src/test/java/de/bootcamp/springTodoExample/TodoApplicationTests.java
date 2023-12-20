@@ -1,4 +1,4 @@
-package de.osp.springTodoExample;
+package de.bootcamp.springTodoExample;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

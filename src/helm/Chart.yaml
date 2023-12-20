@@ -1,7 +1,0 @@
-apiVersion: v2
-name: todolist
-description: A Helm chart for the todolist
-
-type: application
-
-version: 0.1.0

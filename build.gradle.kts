@@ -1,41 +1,14 @@
 plugins {
-    id("org.springframework.boot") version "2.7.4"
-    id("io.spring.dependency-management") version "1.0.11.RELEASE"
+    id("org.springframework.boot") version "3.2.0"
+    id("io.spring.dependency-management") version "1.1.4"
     id("java")
-    id("net.mayope.deployplugin") version "0.0.50"
 }
 
-group = "de.osp"
+group = "de.bootcamp"
 version = "0.0.1-SNAPSHOT"
 
 repositories {
     mavenCentral()
-}
-
-deploy {
-    var username = "mayope"
-    var password = ""
-    var dockerRegistry = "registry-8b60bc8e-3ca3-44f7-af77-9982fb7cc09a.dyn.mayope.net"
-    serviceName = "todolist"
-    default {
-        dockerBuild()
-        dockerLogin {
-            registryRoot = dockerRegistry
-            loginMethod = net.mayope.deployplugin.tasks.DockerLoginMethod.CLASSIC
-            loginUsername = username
-            loginPassword = password
-        }
-        dockerPush {
-            registryRoot = dockerRegistry
-            loginMethod = net.mayope.deployplugin.tasks.DockerLoginMethod.CLASSIC
-            loginUsername = username
-            loginPassword = password
-        }
-        deploy {
-            kubeConfig = System.getProperty("user.home") + "/.kube/config-todo"
-            targetNamespaces = listOf("todo-8c1238d5-48f9-4667-a4b5-7a4a62ef211b")
-        }
-    }
 }
 
 dependencies {
@@ -49,7 +22,7 @@ dependencies {
 
 
     // OpenApi/Swagger documentation
-    implementation("org.springdoc:springdoc-openapi-ui:1.6.11")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.3.0")
 
     runtimeOnly("com.h2database:h2")
 }
