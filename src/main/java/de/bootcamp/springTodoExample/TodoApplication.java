@@ -1,4 +1,4 @@
-package de.osp.springTodoExample;
+package de.bootcamp.springTodoExample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

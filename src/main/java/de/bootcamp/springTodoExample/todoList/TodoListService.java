@@ -1,12 +1,10 @@
-package de.osp.springTodoExample.todoList;
+package de.bootcamp.springTodoExample.todoList;
 
-import de.osp.springTodoExample.model.TodoEntry;
-import de.osp.springTodoExample.repository.TodoListRepo;
-import org.springframework.stereotype.Service;
-
-import javax.persistence.EntityNotFoundException;
+import de.bootcamp.springTodoExample.model.TodoEntry;
+import de.bootcamp.springTodoExample.repository.TodoListRepo;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.stereotype.Service;
 
 @Service
 public class TodoListService {

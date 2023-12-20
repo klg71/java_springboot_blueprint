@@ -1,11 +1,16 @@
-package de.osp.springTodoExample.web;
+package de.bootcamp.springTodoExample.web;
 
-import de.osp.springTodoExample.model.TodoEntry;
-import de.osp.springTodoExample.todoList.TodoListService;
-import org.springframework.web.bind.annotation.*;
-
+import de.bootcamp.springTodoExample.model.TodoEntry;
+import de.bootcamp.springTodoExample.todoList.TodoListService;
 import java.util.List;
 import java.util.UUID;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/todos")
