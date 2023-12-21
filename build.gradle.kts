@@ -27,7 +27,6 @@ dependencies {
     runtimeOnly("com.h2database:h2")
 }
 tasks {
-
     test {
         useJUnitPlatform()
     }
